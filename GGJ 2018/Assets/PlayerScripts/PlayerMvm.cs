@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMvm : MonoBehaviour {
 
+	public GameManagerScript ManagerScript;
+
+    public GameObject NPCprefab;
+	
     Vector2 velocity;
     Vector2 velocity_p2;
     private Rigidbody2D rigiBody;
@@ -17,10 +21,30 @@ public class PlayerMvm : MonoBehaviour {
     public int player_no;
     public float acc;
 
+    public List<EmotionUnit> EmotionArmy;
+
     void Start ()
     {
         Attack = false;
         rigiBody = GetComponent<Rigidbody2D>();
+		
+		// Spawn Emotion Army
+        EmotionArmy = new List<EmotionUnit>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 randPos = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), -1);
+            GameObject npc = Instantiate(NPCprefab, randPos + gameObject.transform.position, Quaternion.identity);
+
+            EmotionUnit unit = new EmotionUnit(npc);
+            unit.npcScript.Team = Team;
+            unit.npcScript.leader = gameObject;
+            unit.npcScript.leaderScript = this;
+            unit.npcScript.ManagerScript = ManagerScript;
+
+            EmotionArmy.Add(unit);
+            ManagerScript.allUnits.Add(unit);
+        }
     }
 	
 	void Update ()

@@ -14,10 +14,12 @@ public class PlayerMvm : MonoBehaviour {
     private Vector2 movementVector;
     public int joystick_numb;
     public string joystickString;
+    Vector2 movementDir;
 
 
     void Start ()
     {
+        Base_velocity = 5f;
         Attack = false;
         rigiBody = GetComponent<Rigidbody2D>();
 	}
@@ -25,6 +27,7 @@ public class PlayerMvm : MonoBehaviour {
 	void Update ()
     {
         Movement();
+
 	}
 
     private void OnCollisionEnter(Collision collision)
@@ -35,14 +38,20 @@ public class PlayerMvm : MonoBehaviour {
 
     private void Movement()
     {
-        movementVector.x = Input.GetAxis("LeftJoystickX");
-        movementVector.y = Input.GetAxis("LeftJoystickY");
+        movementVector.y = Input.GetAxis("LeftJoystickX");
+        movementVector.x = Input.GetAxis("LeftJoystickY");
 
             if (Input.GetButton("X" + joystickString))
             {
                 Debug.Log("Button X works");
             }
-
+            //if two parts of the bool are bigger than 0 (so player is using joystick to move) bool is true
+        bool isWalking = (Mathf.Abs(movementVector.y) + Mathf.Abs(movementVector.x)) > 0;
+        Vector3 movement = new Vector3(movementVector.y, movementVector.x, 0) * Time.deltaTime;
+        if (isWalking)
+        {
+            transform.position += movement * Base_velocity;
+        }
 
     }
 

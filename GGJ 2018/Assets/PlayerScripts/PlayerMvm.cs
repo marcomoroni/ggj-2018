@@ -12,9 +12,7 @@ public class PlayerMvm : MonoBehaviour {
     public float attackRng;
     public int health;
     private Vector2 movementVector;
-    public int joystick_numb;
-    public string joystickString;
-    Vector2 movementDir;
+    public int player_no;
 
 
     void Start ()
@@ -33,7 +31,6 @@ public class PlayerMvm : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         Speed = Base_velocity;
-        joystickString = joystick_numb.ToString();
     }
 
     private void Movement()
@@ -41,18 +38,31 @@ public class PlayerMvm : MonoBehaviour {
         movementVector.y = Input.GetAxis("LeftJoystickX");
         movementVector.x = Input.GetAxis("LeftJoystickY");
 
-            if (Input.GetButton("X" + joystickString))
+        if (player_no == 1)
+        {
+            //Player 1
+            if (Input.GetButton("X") && player_no ==1)
             {
-                Debug.Log("Button X works");
+                Debug.Log("Button X works for player 1");
             }
             //if two parts of the bool are bigger than 0 (so player is using joystick to move) bool is true
-        bool isWalking = (Mathf.Abs(movementVector.y) + Mathf.Abs(movementVector.x)) > 0;
-        Vector3 movement = new Vector3(movementVector.y, movementVector.x, 0) * Time.deltaTime;
-        if (isWalking)
-        {
-            transform.position += movement * Base_velocity;
+            bool isWalking = (Mathf.Abs(movementVector.y) + Mathf.Abs(movementVector.x)) > 0;
+            Vector3 movement = new Vector3(movementVector.y, movementVector.x, 0) * Time.deltaTime;
+            if (isWalking)
+            {
+                transform.position += movement * Base_velocity;
+            }
         }
 
+        if (player_no == 2)
+        {
+            //Player 2
+
+            if (Input.GetButton("X_2") && player_no == 2)
+            {
+                Debug.Log("Button X works for player 2");
+            }
+        }
     }
 
 }

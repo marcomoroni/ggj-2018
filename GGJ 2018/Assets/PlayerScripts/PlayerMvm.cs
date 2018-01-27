@@ -12,6 +12,7 @@ public class PlayerMvm : MonoBehaviour {
     public float attackRng;
     public int health;
     private Vector2 movementVector;
+    private Vector2 movementP2Vect;
     public int player_no;
 
 
@@ -38,6 +39,10 @@ public class PlayerMvm : MonoBehaviour {
         movementVector.y = Input.GetAxis("LeftJoystickX");
         movementVector.x = Input.GetAxis("LeftJoystickY");
 
+        movementP2Vect.y = Input.GetAxis("LeftJoystickX_2");
+        movementP2Vect.x = Input.GetAxis("LeftJoystickY_2");
+
+
         if (player_no == 1)
         {
             //Player 1
@@ -61,6 +66,13 @@ public class PlayerMvm : MonoBehaviour {
             if (Input.GetButton("X_2") && player_no == 2)
             {
                 Debug.Log("Button X works for player 2");
+            }
+
+            bool isWalking2 = (Mathf.Abs(movementP2Vect.y) + Mathf.Abs(movementP2Vect.x)) > 0;
+            Vector3 movement2 = new Vector3(movementP2Vect.y, movementP2Vect.x, 0) * Time.deltaTime;
+            if (isWalking2)
+            {
+                transform.position += movement2 * Base_velocity;
             }
         }
     }

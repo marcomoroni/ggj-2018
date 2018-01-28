@@ -61,6 +61,14 @@ public class NPCscript : MonoBehaviour
         UpdatePos();
 	}
 
+    private void LateUpdate()
+    {
+        if (leaderScript.Attack)
+        {
+            leaderScript.Attack = false;
+        }
+    }
+
     private void Attack()
     {
         if (leaderScript.Attack)
@@ -69,19 +77,19 @@ public class NPCscript : MonoBehaviour
 
             List<EmotionUnit> enemiesInRange = new List<EmotionUnit>();
 
-            //foreach (EmotionUnit eU in ManagerScript.allUnits)
-            //{
-            //    if (eU.npcScript.Team != Team)
-            //    {
-            //        Vector2 a = gameObject.transform.position;
-            //        Vector2 b = eU.npc.transform.position;
+            foreach (EmotionUnit eU in ManagerScript.allUnits)
+            {
+                if (eU.npcScript.Team != Team)
+                {
+                    Vector2 a = gameObject.transform.position;
+                    Vector2 b = eU.npc.transform.position;
 
-            //        Vector2 dist = b - a;
+                    Vector2 dist = b - a;
 
-            //        if (dist.magnitude < Range)
-            //            enemiesInRange.Add(eU);
-            //    }
-            //}
+                    if (dist.magnitude < Range)
+                        enemiesInRange.Add(eU);
+                }
+            }
 
             if (enemiesInRange.Count > 0)
             {
@@ -95,13 +103,15 @@ public class NPCscript : MonoBehaviour
                         enemiesInRange[i].npcScript.leader = leader;
                         enemiesInRange[i].npcScript.leaderScript = leaderScript;
                         enemiesInRange[i].npcScript.HP = 100f;
+                        enemiesInRange[i].leader.EmotionArmy.Remove(enemiesInRange[i]);
+
+                        enemiesInRange[i].leader = leaderScript;
+                        enemiesInRange[i].leader.EmotionArmy.Add(enemiesInRange[i]);
 
                         enemiesInRange[i].npcScript.ChangeSprites();
                     }
                 }
             }
-
-            leaderScript.Attack = false;
         }
     }
 
@@ -140,35 +150,6 @@ public class NPCscript : MonoBehaviour
         Vector2 AtoB = b - a;
 
         vel = AtoB;
-
-        //List<EmotionUnit> alliesInRange = new List<EmotionUnit>();
-
-        //for (int i = 0; i < leaderScript.EmotionArmy.Count; i++)
-        //{
-        //    Vector2 b2 = leaderScript.EmotionArmy[i].npc.transform.position;
-
-        //    Vector2 AtoB2 = b2 - a;
-
-        //    if (AtoB2.magnitude < Range)
-        //    {
-        //        alliesInRange.Add(leaderScript.EmotionArmy[i]);
-        //    }
-        //}
-
-        //Vector2 average = new Vector2();
-
-        //for (int i = 0; i < alliesInRange.Count; i++)
-        //{
-        //    average += (Vector2)alliesInRange[i].npc.transform.position;
-        //}
-
-        //if (alliesInRange.Count > 0)
-        //{
-        //    average /= alliesInRange.Count;
-        //    print(average);
-        //    Vector2 AtoB3 = average - a;
-        //    vel -= AtoB3;
-        //}
     }
 
     // Npc wanders around the arena
@@ -221,6 +202,8 @@ public class NPCscript : MonoBehaviour
         {
             color = Color.grey;
         }
+
+        GetComponent<SpriteRenderer>().color = color;
 
         emitter1.GetComponent<ParticleSystemRenderer>().material = radiusMat;
         emitter2.GetComponent<ParticleSystemRenderer>().material = emissionMat;

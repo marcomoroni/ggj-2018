@@ -27,6 +27,8 @@ public class PlayerMvm : MonoBehaviour {
     public List<EmotionUnit> EmotionArmy;
     public Color color;
 
+    public List<Sprite> sprites;
+
     void Start ()
     {
         Attack = false;
@@ -114,18 +116,23 @@ public class PlayerMvm : MonoBehaviour {
             switch (Team)
             {
                 case "Anger":
+                    GetComponent<SpriteRenderer>().sprite = sprites[0];
                     color = Color.red;
                     break;
                 case "Love":
+                    GetComponent<SpriteRenderer>().sprite = sprites[1];
                     color = new Color(1.0f, 0.7f, 0.7f);
                     break;
                 case "Madness":
+                    GetComponent<SpriteRenderer>().sprite = sprites[2];
                     color = new Color(1.0f, 0.2f, 1.0f);
                     break;
                 case "Happiness":
+                    GetComponent<SpriteRenderer>().sprite = sprites[3];
                     color = Color.green;
                     break;
                 case "Sadness":
+                    GetComponent<SpriteRenderer>().sprite = sprites[4];
                     color = Color.blue;
                     break;
             }

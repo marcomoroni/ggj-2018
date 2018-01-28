@@ -163,11 +163,11 @@ MonoBehaviour:
   emissionMat: {fileID: 0}
   emission:
   - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
+  - {fileID: 2800000, guid: 269985162a2f4dd43850789eef664c48, type: 3}
+  - {fileID: 2800000, guid: 36622b87151bd4f4ca9796d9995a74ad, type: 3}
+  - {fileID: 2800000, guid: 7ef13dd82d773bc4fac407b8dfeb67be, type: 3}
   - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  radius: {fileID: 2800000, guid: bca964208c7c72d4f98239d44e2a2e57, type: 3}
+  radius: {fileID: 2800000, guid: cce490d18f3a14c4296289b6cdabaa96, type: 3}
   Team: Anger
   color: {r: 0, g: 0, b: 0, a: 0}
   HP: 100
@@ -175,6 +175,13 @@ MonoBehaviour:
   Range: 6
   speed: 4
   vel: {x: 0, y: 0}
+  npcSprites:
+  - {fileID: 21300000, guid: 12af306fea819634f80671c1e13e9958, type: 3}
+  - {fileID: 21300000, guid: d3aa46f0333466d4cab56d20f9c5545f, type: 3}
+  - {fileID: 21300000, guid: d9b6810a6367e274ea0559c8746ee003, type: 3}
+  - {fileID: 21300000, guid: d3aa46f0333466d4cab56d20f9c5545f, type: 3}
+  - {fileID: 21300000, guid: f555949a00b861040a8687d45c0a8362, type: 3}
+  - {fileID: 21300000, guid: 12af306fea819634f80671c1e13e9958, type: 3}
 --- !u!198 &198048155891836230
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -110,6 +110,12 @@ MonoBehaviour:
   joyStickAccel: 6
   cooldown: 0
   color: {r: 0, g: 0, b: 0, a: 0}
+  sprites:
+  - {fileID: 21300000, guid: 410a72f3f493340438ca0cbf985286e5, type: 3}
+  - {fileID: 21300000, guid: cf6e2e714a93c894fb4f1a60f00c27dd, type: 3}
+  - {fileID: 21300000, guid: 410a72f3f493340438ca0cbf985286e5, type: 3}
+  - {fileID: 21300000, guid: cf6e2e714a93c894fb4f1a60f00c27dd, type: 3}
+  - {fileID: 21300000, guid: 410a72f3f493340438ca0cbf985286e5, type: 3}
 --- !u!212 &212112651227136702
 SpriteRenderer:
   m_ObjectHideFlags: 1

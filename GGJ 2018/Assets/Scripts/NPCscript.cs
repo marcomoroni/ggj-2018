@@ -33,6 +33,8 @@ public class NPCscript : MonoBehaviour
     public float speed = 2f;
     public Vector2 vel;
 
+    public List<Sprite> npcSprites;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -175,26 +177,32 @@ public class NPCscript : MonoBehaviour
             {
                 case "Anger":
                     emissionMat.SetTexture("_MainTex", emission[0]);
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[0];
                     color = Color.red;
                     break;
                 case "Love":
                     emissionMat.SetTexture("_MainTex", emission[1]);
                     color = new Color(1.0f, 0.7f, 0.7f);
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[1];
                     break;
                 case "Madness":
                     emissionMat.SetTexture("_MainTex", emission[2]);
                     color = new Color(1.0f, 0.2f, 1.0f);
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[2];
                     break;
                 case "Happiness":
                     emissionMat.SetTexture("_MainTex", emission[3]);
                     color = Color.green;
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[3];
                     break;
                 case "Sadness":
                     emissionMat.SetTexture("_MainTex", emission[4]);
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[4];
                     color = Color.blue;
                     break;
                 default:
                     emissionMat.SetTexture("_MainTex", emission[0]);
+                    GetComponent<SpriteRenderer>().sprite = npcSprites[5];
                     break;
             }
         }

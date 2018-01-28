@@ -7,6 +7,7 @@ public class PlayerMvm : MonoBehaviour {
 	public GameManagerScript ManagerScript;
 
     public GameObject NPCprefab;
+    public GameObject ring;
 	
     Vector2 velocity;
     Vector2 velocity_p2;
@@ -141,5 +142,7 @@ public class PlayerMvm : MonoBehaviour {
         {
             color = Color.grey;
         }
+
+        ring.GetComponent<SpriteRenderer>().color = color;
     }
 }

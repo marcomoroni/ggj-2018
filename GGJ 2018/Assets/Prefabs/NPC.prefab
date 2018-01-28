@@ -162,16 +162,16 @@ MonoBehaviour:
   radiusMat: {fileID: 0}
   emissionMat: {fileID: 0}
   emission:
-  - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  - {fileID: 2800000, guid: 269985162a2f4dd43850789eef664c48, type: 3}
-  - {fileID: 2800000, guid: 36622b87151bd4f4ca9796d9995a74ad, type: 3}
-  - {fileID: 2800000, guid: 7ef13dd82d773bc4fac407b8dfeb67be, type: 3}
-  - {fileID: 2800000, guid: c6ae5e9751de4ed478a65fad2c97c8eb, type: 3}
-  radius: {fileID: 2800000, guid: cce490d18f3a14c4296289b6cdabaa96, type: 3}
+  - {fileID: 2800000, guid: 113d510ed8ed4bf4e9cc088b4173e1e7, type: 3}
+  - {fileID: 2800000, guid: 16f3c760cb0b5c8458bc72515c654b75, type: 3}
+  - {fileID: 2800000, guid: c91f87a1b27369243a1dabae70e2b2c3, type: 3}
+  - {fileID: 2800000, guid: 1bba42b942bd3db418334424efaa4936, type: 3}
+  - {fileID: 2800000, guid: ffef174fc52d666459980daeb8faaaec, type: 3}
+  radius: {fileID: 2800000, guid: bca964208c7c72d4f98239d44e2a2e57, type: 3}
   Team: Anger
   color: {r: 0, g: 0, b: 0, a: 0}
   HP: 100
-  Dmg: 3
+  Dmg: 5
   Range: 6
   speed: 4
   vel: {x: 0, y: 0}
@@ -888,7 +888,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 16
+      scalar: 32
       minScalar: 1
       maxCurve:
         serializedVersion: 2

@@ -107,7 +107,7 @@ public class GameManagerScript : MonoBehaviour
                 else
                 {
                     winText.GetComponent<Text>().color = p1S.color;
-                    winText.GetComponent<Text>().text = "P1 (" + p2S.Team + ") wins!\nCongratulations!\nPress X";
+                    winText.GetComponent<Text>().text = "P2 (" + p2S.Team + ") wins!\nCongratulations!\nPress X";
                 }
             }
         }

@@ -51,8 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6388b69823d06464da0ebc29ededb64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1283823114694720, guid: f94e619922d09fb49829be90146990e2,
+  PlayerPrefab: {fileID: 1231367612992398, guid: f94e619922d09fb49829be90146990e2,
     type: 2}
+  p1Text: {fileID: 0}
+  p2Text: {fileID: 0}
+  timeText: {fileID: 0}
+  winText: {fileID: 0}
+  p1S: {fileID: 0}
+  p2S: {fileID: 0}
   Teams:
   - None
   - Anger
@@ -60,8 +66,7 @@ MonoBehaviour:
   - Madness
   - Happiness
   - Sadness
-  UnitCounts: 0000000000000000000000000000000000000000
   clock: 120
   winnerDeclared: 0
   draw: 0
-  winningTeam: 
+  winner: 0
